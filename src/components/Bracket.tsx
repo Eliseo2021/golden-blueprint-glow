@@ -318,7 +318,7 @@ const handlePick = (round: number, matchIdx: number, team: Team) => {
       {/* Header center */}
       <div className="absolute left-1/2 top-2 -translate-x-1/2 text-center">
         <div className="text-[11px] font-bold uppercase tracking-[0.4em] text-amber-300">
-          ★ ★ FAMILY ACE 2026 ★ ★
+          ★★★ FAMILY ACE 2026 ★★★
         </div>
         <div className="mt-1 font-black uppercase leading-none tracking-wider">
           <span className="bg-gradient-to-b from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-3xl text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
