@@ -101,20 +101,23 @@ function HomeScreen({ dt, setDt, onStart }: { dt: string; setDt: (v: string) => 
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(2,6,23,0.9)_100%)]" />
 
       <div className="relative z-10 flex w-full max-w-2xl flex-col items-center px-6 text-center">
-        <div className="mb-3 text-xs font-bold uppercase tracking-[0.5em] text-amber-300/90">
-          ★ ★ Family ACE 2026 ★ ★
+        <div className="mb-3 text-xs font-bold uppercase tracking-[0.5em] text-amber-300/90 italic">
+          ★ ★ ★ Family ACE 2026 ★ ★ ★
         </div>
         <h1 className="font-black uppercase leading-[0.95] tracking-tight">
           <span className="block bg-gradient-to-b from-white via-amber-100 to-amber-300 bg-clip-text text-5xl text-transparent drop-shadow-[0_4px_18px_rgba(251,191,36,0.4)] md:text-7xl">
             Fixture Mundial
           </span>
-          <span className="mt-2 block bg-gradient-to-b from-amber-300 via-amber-500 to-amber-700 bg-clip-text text-3xl text-transparent md:text-5xl">
+          <span
+            className="mt-2 block bg-gradient-to-b from-amber-300 via-amber-500 to-amber-700 bg-clip-text text-3xl text-transparent md:text-5xl italic inline-flex items-center gap-3"
+          >
+            <span className="text-2xl md:text-4xl not-italic">🏆</span>
             Family ACEV2 · 2026
+            <span className="text-2xl md:text-4xl not-italic">🏆</span>
           </span>
         </h1>
-
         <p className="mt-6 max-w-md text-sm text-slate-300 md:text-base">
-          Armá tu propio cuadro. Elegí los ganadores partido a partido. Coroná al campeón del mundo.
+        ¡POR LA CUARTA, FAMILIA! ⭐⭐⭐⭐Armá tu Fixture Mundial 2926 🏆. Elegí los ganadores partido a partido. Coroná al campeón del mundo. Y 📲 Compartí. Tu Final 🥇
         </p>
 
         <div className="mt-10 w-full max-w-md">
@@ -264,7 +267,7 @@ function ShareScreen({ dt, champion, onBack }: { dt: string; champion: Team; onB
               Campeón del Mundo
             </div>
           </div>
-          <div className="mt-2 text-[10px] uppercase tracking-[0.3em] text-slate-400">
+          <div className="mt-2 text-[10px] uppercase tracking-[0.3em] text-slate-400 italic">
             Fixture Mundial Family ACEV2 2026
           </div>
         </div>
