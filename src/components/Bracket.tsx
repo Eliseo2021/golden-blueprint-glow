@@ -17,7 +17,7 @@ function getMatchPos(round: number, side: "L" | "R" | "C", idxInSide: number): {
     [80, 180, 280, 380, 480, 580, 680, 780],
     [130, 330, 530, 730],
     [230, 630],
-    [430],
+    [430, 430],
   ];
   return { x, y: ys[round][idxInSide] };
 }
