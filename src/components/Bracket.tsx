@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { type BracketState, type Match, createInitialBracket, isComplete, pickWinner, simulateAll } from "@/lib/bracket";
 import { getInitials, type Team } from "@/lib/teams";
+import confetti from "canvas-confetti";
 
 const CANVAS_W = 1640;
 const CANVAS_H = 900;
@@ -256,19 +257,49 @@ export function Bracket({
 }) {
   const [bracket, setBracket] = useState<BracketState>(() => createInitialBracket());
 
-  const handlePick = (round: number, matchIdx: number, team: Team) => {
+const triggerCelebration = () => {
+    const duration = 3 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
+
+    const interval: any = setInterval(function () {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (timeLeft / duration);
+      // Confetti dorado, blanco y celeste
+      const colors = ['#fbbf24', '#ffffff', '#38bdf8'];
+
+      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }, colors }));
+      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }, colors }));
+    }, 250);
+  };
+
+const handlePick = (round: number, matchIdx: number, team: Team) => {
     const next = pickWinner(bracket, round, matchIdx, team);
     setBracket(next);
-    if (isComplete(next) && next.champion) onComplete(next.champion);
+    if (isComplete(next) && next.champion) {
+      triggerCelebration(); // Dispara el efecto
+      onComplete(next.champion);
+    }
   };
 
   const handleReset = () => setBracket(createInitialBracket());
+  
   const handleRandom = () => {
     const next = simulateAll(createInitialBracket());
     setBracket(next);
-    if (next.champion) onComplete(next.champion);
+    if (next.champion) {
+      triggerCelebration(); // Dispara el efecto también si es aleatorio
+      onComplete(next.champion);
+    }
   };
-
+  
   const allMatches = useMemo(() => bracket.rounds.flat(), [bracket]);
 
   return (
