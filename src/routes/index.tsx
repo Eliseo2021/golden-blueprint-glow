@@ -116,10 +116,32 @@ function HomeScreen({ dt, setDt, onStart }: { dt: string; setDt: (v: string) => 
             <span className="text-2xl md:text-4xl not-italic">🏆</span>
           </span>
         </h1>
-        <p className="mt-6 max-w-md text-sm text-slate-300 md:text-base">
-        ¡POR LA CUARTA, FAMILIA! ⭐⭐⭐⭐Armá tu Fixture Mundial 2926 🏆. Elegí los ganadores partido a partido. Coroná al campeón del mundo. Y 📲 Compartí. Tu Final 🥇
-        </p>
+        <div className="mt-6 max-w-md text-sm text-slate-300 md:text-base leading-relaxed text-center mx-auto">
+        <div>
+            <p className="mb-2 text-[11px] font-bold tracking-[0.25em] text-cyan-bright">
+            ¡POR LA CUARTA, FAMILIA!
+            </p>
+        </div>
+           
+          <div className="flex justify-center gap-1 text-xl md:text-2xl my-2" aria-hidden>
+            {Array.from({ length: 5 }).map((_, i) => (
+              <span
+                key={i}
+                className="text-[#fbbf24] drop-shadow-[0_0_8px_#fbbf24]"
+                style={{ animation: `star-twinkle 2s ease-in-out ${i * 0.2}s infinite` }}
+              >
+                ★
+              </span>
+            ))}
+          </div>
 
+          <span className="block">
+            Armá tu Fixture Mundial 2026 🏆. Elegí los ganadores partido a partido.
+          </span>
+          <span className="block">
+            Coroná al campeón del mundo. Y 📲 Compartí. Tu Final 🥇
+          </span>
+        </div>
         <div className="mt-10 w-full max-w-md">
           <label className="mb-2 block text-left text-[11px] font-bold uppercase tracking-[0.3em] text-amber-300">
             DT: Ingresá tu nombre
